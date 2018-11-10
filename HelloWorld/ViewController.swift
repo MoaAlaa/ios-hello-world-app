@@ -14,6 +14,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func showMessage(sender: UIButton) {
+        
+        
+        var emjos = ["👻": "Ghost", "😂": "Laghing With Cring", "😇": "Inocence", "😎": "Cool" ]
+
+        let selectedButton = sender
+        
+        if let wordToLookup = selectedButton.titleLabel?.text {
+             let meaning = emjos[wordToLookup]
+            
+            let alertController = UIAlertController(title: "Welcome To My First App", message: meaning, preferredStyle: UIAlertController.Style.alert);
+            
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            
+            present(alertController, animated: true, completion: nil)
+        }
+    }
 
 
 }
